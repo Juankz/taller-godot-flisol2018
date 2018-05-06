@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hit1.ogg-5cff20d20e3bc4fdc3e7f952b1673c33.oggstr"
+
+[deps]
+
+source_file="res://escopeta/hit1.ogg"
+source_md5="578d3650a34a51748f8998510f365b9f"
+
+dest_files=[ "res://.import/hit1.ogg-5cff20d20e3bc4fdc3e7f952b1673c33.oggstr" ]
+dest_md5="03b1d22163951ab18a90aab771804812"
+
+[params]
+
+loop=false
+loop_offset=0

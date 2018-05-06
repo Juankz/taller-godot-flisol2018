@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Wacky Waiting.ogg-ed098d1ae6ee9c35358a614cfcf7efb3.oggstr"
+
+[deps]
+
+source_file="res://escenario/Wacky Waiting.ogg"
+source_md5="12c7a7f0694e5bb25d03f475c1ea3573"
+
+dest_files=[ "res://.import/Wacky Waiting.ogg-ed098d1ae6ee9c35358a614cfcf7efb3.oggstr" ]
+dest_md5="20a3306a2aa54987b520a619f272efca"
+
+[params]
+
+loop=true
+loop_offset=0

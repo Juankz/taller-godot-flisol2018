@@ -1,0 +1,604 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Juego.gd" type="Script" id=1]
+[ext_resource path="res://escenario/bg_wood.png" type="Texture" id=2]
+[ext_resource path="res://escenario/grass1.png" type="Texture" id=3]
+[ext_resource path="res://escenario/tree_pine.png" type="Texture" id=4]
+[ext_resource path="res://escenario/tree_oak.png" type="Texture" id=5]
+[ext_resource path="res://escenario/water1.png" type="Texture" id=6]
+[ext_resource path="res://escenario/curtain_top.png" type="Texture" id=7]
+[ext_resource path="res://escenario/curtain.png" type="Texture" id=8]
+[ext_resource path="res://escenario/curtain_straight.png" type="Texture" id=9]
+[ext_resource path="res://escenario/Wacky Waiting.ogg" type="AudioStream" id=10]
+[ext_resource path="res://ui/tema1.tres" type="Theme" id=11]
+[ext_resource path="res://objetos/duck_outline_target_yellow.png" type="Texture" id=12]
+[ext_resource path="res://ui/crosshair_outline_large.png" type="Texture" id=13]
+[ext_resource path="res://escopeta/rifle.png" type="Texture" id=14]
+[ext_resource path="res://escopeta/hit1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://escenario/bg_red.png" type="Texture" id=16]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "agua"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -189, 377 ), Vector2( -172, 377 ), Vector2( -189, 377 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -83, 377 ), Vector2( 60, 377 ), Vector2( -83, 377 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "abrir_telon"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CortinaIzq:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -512, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CortinaDer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, 0 ), Vector2( 512, 0 ), Vector2( 1024, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Titulo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Titulo:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Button:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[node name="Juego" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Fondo" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1021.0
+margin_bottom = 602.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tierra" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 0, 93 )
+
+[node name="Sprite" type="Sprite" parent="Tierra" index="0"]
+
+position = Vector2( 68, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Tierra" index="1"]
+
+position = Vector2( 596, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Tierra" index="2"]
+
+position = Vector2( 332, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite8" type="Sprite" parent="Tierra" index="3"]
+
+position = Vector2( 860, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Tierra" index="4"]
+
+position = Vector2( 200, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Tierra" index="5"]
+
+position = Vector2( 728, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Tierra" index="6"]
+
+position = Vector2( 464, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite6" type="Sprite" parent="Tierra" index="7"]
+
+position = Vector2( 992, 306 )
+texture = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Tierra" index="8"]
+
+position = Vector2( 78, 120 )
+texture = ExtResource( 4 )
+
+[node name="Sprite11" type="Sprite" parent="Tierra" index="9"]
+
+position = Vector2( 519, 120 )
+texture = ExtResource( 5 )
+
+[node name="Sprite10" type="Sprite" parent="Tierra" index="10"]
+
+position = Vector2( 888, 186 )
+scale = Vector2( 1.51765, 1.51765 )
+texture = ExtResource( 4 )
+
+[node name="ObjetosLejanos" type="Node2D" parent="." index="2"]
+
+position = Vector2( -2, 171 )
+
+[node name="Agua" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="TextureRect" type="TextureRect" parent="Agua" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -180.746
+margin_top = 377.0
+margin_right = 1254.25
+margin_bottom = 601.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="TextureRect2" type="TextureRect" parent="Agua" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -13.5694
+margin_top = 377.0
+margin_right = 1314.43
+margin_bottom = 601.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Agua" index="2"]
+
+root_node = NodePath("..")
+autoplay = "agua"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/agua = SubResource( 1 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="ObjetosCercanos" type="Node2D" parent="." index="4"]
+
+position = Vector2( 0, 144 )
+
+[node name="Cortinas" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="Sprite5" type="Sprite" parent="Cortinas" index="0"]
+
+position = Vector2( 98, 82 )
+texture = ExtResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="Cortinas" index="1"]
+
+position = Vector2( 275, 82 )
+texture = ExtResource( 7 )
+
+[node name="Sprite7" type="Sprite" parent="Cortinas" index="2"]
+
+position = Vector2( 460, 82 )
+texture = ExtResource( 7 )
+
+[node name="Sprite8" type="Sprite" parent="Cortinas" index="3"]
+
+position = Vector2( 638, 82 )
+texture = ExtResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="Cortinas" index="4"]
+
+position = Vector2( 826, 82 )
+texture = ExtResource( 7 )
+
+[node name="Sprite10" type="Sprite" parent="Cortinas" index="5"]
+
+position = Vector2( 1010, 82 )
+texture = ExtResource( 7 )
+
+[node name="Sprite11" type="Sprite" parent="Cortinas" index="6"]
+
+position = Vector2( 66, 262 )
+texture = ExtResource( 8 )
+
+[node name="Sprite12" type="Sprite" parent="Cortinas" index="7"]
+
+position = Vector2( 961, 270 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Cortinas" index="8"]
+
+position = Vector2( 128, 40 )
+texture = ExtResource( 9 )
+
+[node name="Sprite4" type="Sprite" parent="Cortinas" index="9"]
+
+position = Vector2( 640, 40 )
+texture = ExtResource( 9 )
+
+[node name="Sprite2" type="Sprite" parent="Cortinas" index="10"]
+
+position = Vector2( 384, 40 )
+texture = ExtResource( 9 )
+
+[node name="Sprite3" type="Sprite" parent="Cortinas" index="11"]
+
+position = Vector2( 896, 40 )
+texture = ExtResource( 9 )
+
+[node name="Portillo" type="Sprite" parent="." index="6"]
+
+position = Vector2( 515, 602 )
+scale = Vector2( 4.45312, 1 )
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 10 )
+volume_db = -10.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="HUD" type="Control" parent="." index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 11 )
+_sections_unfolded = [ "Theme" ]
+
+[node name="TextureRect" type="TextureRect" parent="HUD" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 11.0
+margin_right = 74.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="Puntaje" type="Label" parent="HUD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 92.0
+margin_top = -18.0
+margin_right = 256.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Tiempo" type="Label" parent="HUD" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 834.0
+margin_top = -18.0
+margin_right = 997.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "00:30"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Escopeta" type="Node2D" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="Mira" type="Sprite" parent="Escopeta" index="0"]
+
+position = Vector2( 513, 300 )
+texture = ExtResource( 13 )
+
+[node name="Arma" type="Sprite" parent="Escopeta" index="1"]
+
+position = Vector2( 762, 583 )
+texture = ExtResource( 14 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Escopeta" index="2"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Timer" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = true
+
+[node name="Tiempo" type="Timer" parent="." index="11"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="Presentacion" type="Control" parent="." index="12"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1027.0
+margin_bottom = 576.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 11 )
+_sections_unfolded = [ "Pause", "Theme", "Visibility" ]
+
+[node name="CortinaIzq" type="TextureRect" parent="Presentacion" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 512.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="CortinaDer" type="TextureRect" parent="Presentacion" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="Titulo" type="Label" parent="Presentacion" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 54.0
+margin_right = 1019.0
+margin_bottom = 366.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Tiro al Pato
+por:
+Juan Velandia"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Button" type="Button" parent="Presentacion" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 304.0
+margin_top = 412.0
+margin_right = 722.0
+margin_bottom = 514.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Jugar"
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Presentacion" index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/abrir_telon = SubResource( 2 )
+blend_times = [  ]
+
+[connection signal="timeout" from="Timer" to="." method="crear_objetivo"]
+
+[connection signal="timeout" from="Timer" to="." method="_reiniciar_contador"]
+
+[connection signal="timeout" from="Tiempo" to="." method="_segundo_transcurrido"]
+
+[connection signal="button_down" from="Presentacion/Button" to="." method="iniciar_juego"]
+
+
