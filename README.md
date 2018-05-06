@@ -12,7 +12,7 @@ Si bien durante el taller no se logró realizar la totalidad del juego cualquier
 
 Descargar el archivo ZIP en el botón verde (arriba a la derecha)
 
-Abrir Godot Engine :arrow_right:  Seleccionar **Importar** en el panel derecho :arrow_right:  Botón **Examinar** :arrow_right:  Buscar la carpeta del proyecto :arrow_right:  Doble clic :arrow_right:  Seleccionar el archivo **project.godot** :arrow_right:  **Abrir** :arrow_right:  **Importar y editar**
+Abrir [Godot Engine](https://godotengine.org/download) :arrow_right:  Seleccionar **Importar** en el panel derecho :arrow_right:  Botón **Examinar** :arrow_right:  Buscar la carpeta del proyecto :arrow_right:  Doble clic :arrow_right:  Seleccionar el archivo **project.godot** :arrow_right:  **Abrir** :arrow_right:  **Importar y editar**
 
 Espero que sea útil y aprendan mucho :smile: 
 
